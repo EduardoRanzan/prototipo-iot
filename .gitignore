@@ -180,12 +180,3 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 
-# Ignorar o conteúdo, mas manter a pasta
-docker/influxdb/*
-!docker/influxdb/.gitkeep
-docker/mosquitto/data/*
-!docker/mosquitto/data/.gitkeep
-docker/mosquitto/config/*
-!docker/mosquitto/config/.gitkeep
-docker/mosquitto/log/*
-!docker/mosquitto/log/.gitkeep
