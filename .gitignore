@@ -179,3 +179,9 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+
+# Pastas do Docker que não devem subir
+docker/influxdb/*
+docker/mosquitto/data/*
+docker/mosquitto/config/*
+docker/mosquitto/log/*
