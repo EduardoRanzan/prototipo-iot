@@ -1,0 +1,28 @@
+name: prototipo-iot
+
+services:
+  influxdb:
+    image: influxdb:1.11.8
+    container_name: influxdb
+    ports:
+      - "8086:8086"
+    volumes:
+      - ./influxdb:/var/lib/influxdb
+    environment:
+      INFLUXDB_DB: prototipoIot
+      INFLUXDB_ADMIN_ENABLED: "true"
+      INFLUXDB_ADMIN_USER: admin
+      INFLUXDB_ADMIN_PASSWORD: admin123
+
+
+  mosquitto:
+    image: eclipse-mosquitto:openssl
+    container_name: mosquitto
+    ports:
+      - "1883:1883"   # Porta MQTT padrão
+      - "9001:9001"   # Websockets (opcional)
+    volumes:
+      - ./mosquitto/data:/mosquitto/data
+      - ./mosquitto/config:/mosquitto/config
+      - ./mosquitto/log:/mosquitto/log
+
