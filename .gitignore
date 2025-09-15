@@ -180,3 +180,7 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 
+
+docker/volumes/grafana-data/plugins/*
+docker/volumes/mosquitto/config/mosquitto.conf
+/.vscode
