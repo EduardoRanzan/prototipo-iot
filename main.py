@@ -1,5 +1,8 @@
 from dotenv import load_dotenv
 import os
+from influxdb_client import InfluxDBClient, WriteOptions
+from sensors.umidade import post_umidade
+from sensors.temperatura import post_temperatura, delete_temperatura
 
 load_dotenv()
 
@@ -8,19 +11,7 @@ token = os.getenv("INFLUX_TOKEN")
 org = os.getenv("INFLUX_ORG")
 bucket = os.getenv("INFLUX_BUCKET")
 
-
-from influxdb_client import InfluxDBClient, Point, WriteOptions
-
-client = InfluxDBClient(url=url, token=token, org=org)
 write_api = client.write_api(write_options=WriteOptions(batch_size=1))
+delete_api = client.delete_api()
 
-point = (
-    Point("umidade")
-    .tag("sensor", "box")
-    .field("valor", 50)
-)
 
-write_api.write(bucket=bucket, record=point)
-print("Teste de inserção")
-
-client.close()
