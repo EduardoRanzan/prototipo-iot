@@ -1,3 +1,4 @@
-influxdb_client
+influxdb-client
 six
 python-dotenv
+paho-mqtt
