@@ -13,7 +13,7 @@ def post_records(sensor, valor):
         .field("valor", float(valor))
     )
     write_api.write(bucket=bucket, org=org, record=point)
-    print(f"Registros inseridos: {valor}")
+    print(f"INFLUXDB: Registros inseridos: {valor}")
     write_api.close()
 
 def get_records(sensor, range):
